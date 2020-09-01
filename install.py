@@ -9,7 +9,7 @@ pattern = "k8set"
 if("zsh" in shell):
     with open(f"{home}/.zshrc", "r") as f:
         lines = f.readlines()
-    with open(f"{home}/.zshrc", "w") as f:
+    with open(f"{home}/.zshrc", "a") as f:
         for line in lines:
             if "k8set" in line:
                 f.write(line)
@@ -17,7 +17,7 @@ if("zsh" in shell):
 elif("bash" in shell):
     with open(f"{home}/.bash_profile", "r") as f:
         lines = f.readlines()
-    with open(f"{home}/.bash_profile", "w") as f:
+    with open(f"{home}/.bash_profile", "a") as f:
         for line in lines:
             if "k8set" in line:
                 f.write(line)
@@ -29,12 +29,12 @@ installation_str =f"alias k8set= python {current_folder}/k8set.py"
 
 if("zsh" in shell):
     print(f"Alias will be installed now by adding {installation_str} to {home}/.zshrc")
-    with open (f"{home}/.zshrc", "w") as f:
+    with open (f"{home}/.zshrc", "a") as f:
         f.write(installation_str)
         f.close()
 elif("bash" in shell):
     print(f"Alias will be installed now by adding {installation_str} to {home}/.bash_profile")
-    with open (f"{home}/.bash_profile", "w") as f:
+    with open (f"{home}/.bash_profile", "a") as f:
         f.write(installation_str)
         f.close()
 
