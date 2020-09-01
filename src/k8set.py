@@ -1,9 +1,7 @@
-import pathlib, os, re
+import pathlib, os, re, glob
 
-current_folder = pathlib.Path(__file__).parent.absolute()
-fileExt = r"*.kubeconfig"
-
-arrKubeconfigs = list(pathlib.Path(current_folder).glob(fileExt))
+arrKubeconfigs = glob.glob('*.kubeconfig') #It looks in current directory for files with extension kubeconfig and creates list of them
+print(arrKubeconfigs)
 
 if (len(arrKubeconfigs) == 0):
     print("Current directory does not contains any kubeconfig files.")
