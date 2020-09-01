@@ -23,7 +23,7 @@ elif("bash" in shell):
                 f.write(line)
         f.truncate()
 
-installation_str =fr"alias k8set='python {current_folder}/k8set.py'"
+installation_str =fr"alias k8set='python . {current_folder}/k8set.py'"
 
 if("zsh" in shell):
     print(f"Alias will be installed now by adding {installation_str} to {home}/.zshrc")
