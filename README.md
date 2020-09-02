@@ -13,7 +13,7 @@ This in next iteration of script originally created by **[perude](https://github
 You hve to execute install.py script
 
 ```python
-python install.sh
+python install.py
 ```
 
 This should add alias for your corresponding shell file
