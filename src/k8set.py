@@ -1,10 +1,10 @@
 import pathlib, os, re, glob
 import subprocess
 
-# TODO: Correct this path to take path where the script is trigger
-current_folder = pathlib.Path(__file__).parent.absolute()
+# current_folder = pathlib.Path(__file__).parent.absolute()
+current_folder = os.getcwd()
 arrKubeconfigs = glob.glob('*.kubeconfig') #It looks in current directory for files with extension kubeconfig and creates list of them
-
+print("current folder is: " + str(current_folder) )
 if (len(arrKubeconfigs) == 0):
     print("Current directory does not contains any kubeconfig files.")
 else:
@@ -24,9 +24,8 @@ else:
 
         print(f"Following kubeconfig: {selected_kubeconfig} will be set as active one")
         
-        os.environ["KUBECONFIG"] = str(current_folder) + "/" + selected_kubeconfig
-        kubeconfig = os.environ["KUBECONFIG"]
-
+        kubeconfig = str(current_folder) + "/" + selected_kubeconfig
+        print(kubeconfig)
         # TODO: After correcting the path try out without and with subprocess.call() getting the export to work
 
 list.clear(arrKubeconfigs)
